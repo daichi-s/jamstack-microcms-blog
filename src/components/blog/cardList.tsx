@@ -15,7 +15,7 @@ const BlogCardList = ({ blogs }: Props) => {
         :
         <ul>
           {blogs.map(blog => (
-            <li key={blog.id} className="py-5">
+            <li key={blog.id} className="p-5">
               <Link href={`/[slug]`} as={`/${blog.slug}`}>
                 <a>
                   <div className="grid grid-cols-6">
@@ -23,16 +23,18 @@ const BlogCardList = ({ blogs }: Props) => {
                       <Image src={blog.featured_image.url} alt="サムネイル" width="335" height="176" />
                     </div>
                     <div className="col-span-3">
-                      <div>
+                      <div className="h-2/4">
                         <div className="text-lg font-bold">{blog.title}</div>
                       </div>
-                      <div className="flex my-3">
-                        {blog.category.map(_category => (
+                      <div className="h-2/4">
+                        <div className="flex my-3">
+                          {blog.category.map(_category => (
                             <div key={_category.id} className="border rounded p-1 mx-1">{_category.name}</div>
-                        ))}
-                      </div>
-                      <div>
-                        <div>{dayjs(blog.publishedAt).format('YYYY/MM/DD')}</div>
+                          ))}
+                        </div>
+                        <div>
+                          <div>{dayjs(blog.publishedAt).format('YYYY/MM/DD')}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
